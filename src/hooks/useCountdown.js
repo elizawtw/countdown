@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 
 const useCountdown = (targetDate) => {
  const expiryDate = new Date(targetDate).getTime();
+ console.log(expiryDate)
  const currentDate = new Date().getTime();
 
  const [countdown, setCountdown] = useState(expiryDate - currentDate);
@@ -11,8 +12,8 @@ const useCountdown = (targetDate) => {
   const timeInterval = setInterval(()=>{
     setCountdown(expiryDate - currentDate);
   }, 1000);
-  return clearInterval(timeInterval);
- }, [expiryDate])
+  return () => clearInterval(timeInterval);
+ });
  return getReturnCount(countdown);
 };
 

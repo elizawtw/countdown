@@ -1,14 +1,34 @@
-import React from 'react';
-import CountdownTimer from './components/CountdownTimer';
+import "./App.css";
+import React from "react";
+import { useState } from "react";
+import CountdownTimer from "./components/CountdownTimer";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const App = () => {
-  const desireDate = new Date('12/25/2022, 00:00:00 AM').getTime();
-  console.log(desireDate)
+  const [startDate, setStartDate] = useState(new Date().getTime());
+  
+
+  const desireDate = new Date(startDate).getTime();
+
   return (
-    <div>
+    <div className="app-container">
+      <div className="app-date-container">
+        <h1>Pick a date:</h1>
+        <DatePicker
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          showTimeSelect
+          dateFormat="Pp"
+        />
+        <h1>Only</h1>
+      </div>
+
       <CountdownTimer targetDate={desireDate} />
+     
     </div>
-  )
-}
+  );
+};
 
 export default App;

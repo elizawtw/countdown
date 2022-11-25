@@ -1,9 +1,10 @@
 import React from 'react';
 
-const DateTimeDisplay = () => {
+const DateTimeDisplay = ({value, type}) => {
   return (
-    <div>
-      Date Time Display
+    <div className='countdown'>
+      <p className="display">{value} {type} </p>
+      
     </div>
   )
 }
