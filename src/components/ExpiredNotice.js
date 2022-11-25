@@ -2,8 +2,9 @@ import React from 'react';
 
 const ExpiredNotice = () => {
   return (
-    <div>
-      Expired Notice
+    <div className="expired">
+      <h1>Expired Date</h1>
+      <p>Please set a new date</p>
     </div>
   )
 }
